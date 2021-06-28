@@ -12,13 +12,15 @@ class StudentsController < ApplicationController
   end
 
   def create
-    Student.create(first_name: params[:student][:first_name], last_name: params[:student][:last_name])
+    # binding.pry
+    student = Student.create(first_name: params[:student][:first_name], last_name: params[:student][:last_name])
     # redirect_to new_student_path
     # session[:student] = params.inspect
     # student[:first_name] = params[:student][:first_name]
     # student[:last_name] = params[:student][:last_name]
     # redirect_to new_student_path
-    redirect_to students_path
+  
+    redirect_to student_path(student)
   end
 
 end
